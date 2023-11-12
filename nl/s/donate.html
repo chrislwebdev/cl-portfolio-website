@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../stylesheet.css" />
+    <title>New Leaf</title>
+  </head>
+  <body class="mobile-body">
+    <header>
+      <nav class="nav">
+        <div class="nav__center">
+          <div class="nav__logo-container">
+            <a href="../index.html"
+              ><img
+                src="../images/New Leaf logo.png"
+                alt="New Leaf Logo"
+                class="nav__logo-image"
+            /></a>
+          </div>
+          <div class="nav__toggle-container">
+            <img
+              src="../images/Nav menu button.svg"
+              alt=""
+              class="nav__toggle-open-btn"
+            />
+            <img
+              src="../images/Nav close button.svg"
+              alt=""
+              class="nav__toggle-close-btn"
+            />
+          </div>
+          <ul class="nav__links-container">
+            <li>
+              <a href="./about.html" class="nav__single-link active-link"
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a href="./projects.html" class="nav__single-link"
+                >Our Projects</a
+              >
+            </li>
+            <li>
+              <a href="./trees.html" class="nav__single-link">Newleaf Trees</a>
+            </li>
+            <li>
+              <a href="./earth-and-forests.html" class="nav__single-link"
+                >Earth and Forests</a
+              >
+            </li>
+            <li class="newleaf-locations-link">
+              <a href="./newleaf-locations.html" class="nav__single-link"
+                >Newleaf Locations</a
+              >
+            </li>
+            <li class="newleaf-locations-link">
+              <a href="./donate.html" class="nav__single-link">Join</a>
+            </li>
+          </ul>
+          <div class="nav__underline element-visible"></div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <h2 class="secondary-header">Donation</h2>
+
+      <div class="main__content-outer-container">
+        <div class="main__content-inner-container">
+          <form action="#" class="donation-form">
+            <div class="donation-option donation-option-1">
+              <label for="donation-1">Plant Tree Pack </label>
+              <p class="donation-amount">£40</p>
+              <input
+                type="checkbox"
+                name="value1"
+                id="donation-1"
+                class="donation-checkbox"
+                value="40"
+              />
+            </div>
+
+            <div class="donation-option donation-option-2">
+              <label for="donation-2" class="donation-label"
+                >Plant a Beech Tree</label
+              >
+              <p class="donation-amount">£8</p>
+              <input
+                type="checkbox"
+                name="value2"
+                id="donation-2"
+                class="donation-checkbox"
+                value="8"
+              />
+            </div>
+
+            <div class="donation-option donation-option-3">
+              <label for="donation-3">Plant a Rowan Tree</label>
+              <p class="donation-amount">£17</p>
+              <input
+                type="checkbox"
+                name="value3"
+                id="donation-3"
+                class="donation-checkbox"
+                value="17"
+              />
+            </div>
+
+            <div class="donation-option donation-option-4">
+              <label for="donation-4">Plant a Scot's Pine Tree</label>
+              <p class="donation-amount">£40</p>
+              <input
+                type="checkbox"
+                name="value4"
+                id="donation-4"
+                class="donation-checkbox"
+                value="40"
+              />
+            </div>
+
+            <div class="donation-option donation-option-5">
+              <label for="donation-5">Enter donation amount</label>
+              <input
+                type="number"
+                name="value5"
+                id="donation-5"
+                class="donation-input"
+                value="0"
+                max="100"
+                class="donation-input"
+              />
+            </div>
+
+            <div class="submit-btn-align">
+              <input
+                type="submit"
+                value="Submit"
+                class="donate-btn link-button"
+              />
+            </div>
+            <p class="hidden-alert">Please select an amount</p>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="../app.js"></script>
+    <script src="../app2.js"></script>
+  </body>
+</html>
