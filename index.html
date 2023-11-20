@@ -10,10 +10,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./style.css?r=20112023" />
     <title>Chris L</title>
   </head>
   <body>
+    <div class="loading"></div>
     <!-- 1. Header / Hero -->
     <header>
       <div class="nav-buttons-container">
@@ -27,10 +28,10 @@
 
       <div class="hero-container">
         <ul class="hero-navbar">
-          <li><a href="#" class="hero-link hero-link-1">About me</a></li>
-          <li><a href="#" class="hero-link hero-link-2">My projects</a></li>
-          <li><a href="#" class="hero-link hero-link-3">My resume</a></li>
-          <li><a href="#" class="hero-link hero-link-4">Contact me</a></li>
+          <li><a href="#about" class="hero-link hero-link-1">About me</a></li>
+          <li><a href="#projects" class="hero-link hero-link-2">My projects</a></li>
+          <li><a href="#resume" class="hero-link hero-link-3">My resume</a></li>
+          <li><a href="#contact" class="hero-link hero-link-4">Contact me</a></li>
         </ul>
 
         <div class="hero-center">
@@ -59,7 +60,7 @@
 
     <main>
       <!-- 2. About Section -->
-      <section class="about-section">
+      <section id="about" class="about-section">
         <div class="about-me-center">
           <h2 class="about-me-header">
             About <br />
@@ -107,7 +108,7 @@
       </section>
 
       <!-- 4. Projects section -->
-      <section class="section">
+      <section id="projects" class="section">
          <div class="section-center">
         <div class="section-header-container">
           <div class="header-align">
@@ -119,7 +120,7 @@
           <div class="main-projects-ls">
             <div class="single-project">
               <img
-                src="./images/project-img-1.png"
+                src="./images/project-img-1.jpg"
                 alt="A laptop is shown with the project on it, that project being to develop a website for a product designer"
                 class="single-project-img"
               />
@@ -128,7 +129,7 @@
 
             <div class="single-project">
               <img
-                src="./images/project-img-2.png"
+                src="./images/project-img-2.jpg"
                 alt="A laptop is shown with the project on it, that project being to develop a website for a tree planting charity"
                 class="single-project-img"
               />
@@ -139,35 +140,31 @@
           <div class="small-projects-ls">
             <div class="single-project">
               <div class="project-details">
-                <h3 class="project-title">Project 1</h3>
+                <h3 class="project-title">Card input form</h3>
                 <p class="project-desc">
-                  This is where the first project, which I don't know yet, is
-                  going to go
+                  A frontendmentor.io challenge to create a card details input form.  HTML, CSS, Javascript.
                 </p>
               </div>
-              <button class="project-btn"></button>
+              <a href="https://salty-eclairs.netlify.app/" target="_blank"><button class="project-btn"></button></a>
             </div>
 
             <div class="single-project">
               <div class="project-details">
-                <h3 class="project-title">Project 2</h3>
+                <h3 class="project-title">Rock, paper, scissors</h3>
                 <p class="project-desc">
-                  This is where the second project, which I don't know yet, is
-                  going to go
+                  A frontendmentor.io challenge to create the classic rock, paper, scissors game.  HTML, SASS, Javascript.
                 </p>
               </div>
-              <button class="project-btn"></button>
+              <a href="https://rock-paper-scissors-cl.netlify.app/" target="_blank"><button class="project-btn"></button></a>
             </div>
 
             <div class="single-project">
               <div class="project-details">
-                <h3 class="project-title">Project 3</h3>
+                <h3 class="project-title">The planets</h3>
                 <p class="project-desc">
-                  This is where the third project, which I don't know yet, is
-                  going to go
-                </p>
+                  Quick revision of the planets.  Disclaimer: planets may appear cuter than they actually are.
               </div>
-              <button class="project-btn"></button>
+              <a href="https://remember-the-planets.netlify.app/" target="_blank"><button class="project-btn"></button></a>
             </div>
           </div>
         </div>
@@ -175,7 +172,7 @@
       </section>
 
       <!-- 5. Resume section -->
-      <section class="section">
+      <section id="resume" class="section">
          <div class="section-center">
             <div class="section-header-container">
                 <div class="header-align">
@@ -218,7 +215,7 @@
     </section>
 
       <!-- 6. Contact section -->
-      <footer class="section">
+      <footer id="contact" class="section">
         <div class="section-center">
         <div class="section-header-container">
           <div class="header-align">
