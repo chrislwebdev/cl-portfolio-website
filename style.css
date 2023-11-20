@@ -435,6 +435,7 @@ header {
   max-width: 85%;
   display: flex;
   flex-flow: column;
+  align-items: center;
 }
 
 .email-address {
@@ -478,6 +479,11 @@ header {
   opacity: 0.8;
   background: var(--hello-yellow);
   mix-blend-mode: multiply;
+}
+
+.social-media-link {
+  display: inline-block;
+  color: var(--deepest-gray);
 }
 
 @media (width > 650px) {
