@@ -18,7 +18,7 @@ const removeBodyLoad = () => {
   setTimeout(() => {
     const loading = document.querySelector(".loading");
     loading.remove();
-  }, 1500);
+  }, 2000);
   sessionStorage.setItem("load", "load");
 };
 
