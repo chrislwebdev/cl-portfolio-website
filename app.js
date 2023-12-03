@@ -9,17 +9,17 @@ navBtn.addEventListener("click", () => {
   navbar.classList.toggle("visible");
 });
 
-const removeBodyLoad = () => {
-  if (sessionStorage.getItem("load")) {
-    const loading = document.querySelector(".loading");
-    loading.remove();
-    return;
-  }
-  setTimeout(() => {
-    const loading = document.querySelector(".loading");
-    loading.remove();
-  }, 2000);
-  sessionStorage.setItem("load", "load");
-};
+// const removeBodyLoad = () => {
+//   if (sessionStorage.getItem("load")) {
+//     const loading = document.querySelector(".loading");
+//     loading.remove();
+//     return;
+//   }
+//   setTimeout(() => {
+//     const loading = document.querySelector(".loading");
+//     loading.remove();
+//   }, 2000);
+//   sessionStorage.setItem("load", "load");
+// };
 
-removeBodyLoad();
+// removeBodyLoad();

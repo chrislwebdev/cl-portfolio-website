@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
-@import url(https://db.onlinewebfonts.com/c/d8a4964eec2c4a693d6722609068043c?family=PolySans+Slim);
+/* @import url(https://db.onlinewebfonts.com/c/d8a4964eec2c4a693d6722609068043c?family=PolySans+Slim); */
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan&display=swap");
+
+@font-face {
+  font-family: PolySans Slim;
+  src: url(fonts/d8a4964eec2c4a693d6722609068043c.woff);
+}
 
 *,
 *::before,
@@ -56,7 +61,7 @@ body {
   color: var(--deeper-gray);
 }
 
-.loading {
+/* .loading {
   position: absolute;
   height: 1000%;
   width: 100%;
@@ -64,7 +69,7 @@ body {
   content: "";
   z-index: 1000;
   top: 0;
-}
+} */
 
 /* General Selectors */
 .section {
