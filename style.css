@@ -13,7 +13,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid red; */
 }
 
 html {
@@ -61,20 +60,11 @@ body {
   color: var(--deeper-gray);
 }
 
-/* .loading {
-  position: absolute;
-  height: 1000%;
-  width: 100%;
-  background: #f7f7f7;
-  content: "";
-  z-index: 1000;
-  top: 0;
-} */
-
 /* General Selectors */
 .section {
   margin: auto;
   margin-bottom: 4rem;
+  overflow-x: clip;
 }
 
 .section-header-container {
@@ -91,9 +81,9 @@ body {
 
 .section-header {
   font-size: 2.6rem;
-  margin-left: 2rem;
   margin-top: 2rem;
   margin-left: auto;
+  width: 100%;
 }
 
 .section-content {
@@ -130,7 +120,6 @@ header {
   background-repeat: no-repeat;
   margin-left: 1rem;
   position: relative;
-  /* margin-top: -1rem; */
 }
 
 .hero-navbar {
@@ -183,7 +172,7 @@ header {
 
 .hero-header {
   color: var(--deeper-gray);
-  font-size: 4.4rem;
+  font-size: 4.1rem;
   letter-spacing: -3px;
 }
 
@@ -208,7 +197,7 @@ header {
 }
 
 .intro-info-header {
-  font-size: 2.1rem;
+  font-size: 2rem;
   line-height: 2rem;
   width: max-content;
 }
@@ -317,7 +306,7 @@ header {
   background: var(--hello-yellow);
   z-index: -2;
   border-radius: 100%;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 .why-work-header::before,
@@ -326,14 +315,18 @@ header {
   position: absolute;
   top: 0;
   left: 0.75rem;
-  max-width: 11rem;
-  max-height: 11rem;
+  max-width: 14rem;
+  max-height: 14rem;
   width: 90vw;
   height: 90vw;
   background: var(--faded-yellow);
   z-index: -2;
   border-radius: 100%;
   box-shadow: 0 0 5px var(--faded-yellow);
+}
+
+.resume-title-background::before,
+.resume-title-background::after {
   visibility: hidden;
   display: none;
 }
@@ -351,7 +344,7 @@ header {
 /* 4. Projects section */
 .single-project {
   border: 1.4px solid black;
-  height: 15rem;
+  min-height: 15rem;
   width: 100%;
   max-width: 450px;
   margin: auto;
@@ -368,14 +361,26 @@ header {
 
 .project-details {
   display: grid;
-  place-content: center;
-  height: 100%;
+  grid-template-rows: auto auto auto;
+  height: auto;
   margin-inline: 1rem;
-  padding-bottom: 1.5rem;
+  padding-block: 2rem;
+  min-height: 100%;
+  height: 100%;
+  min-height: 15rem;
+}
+
+.project-details > * {
+  padding: 0;
+  max-width: 100%;
+  word-break: break-word;
+  height: auto;
+  min-height: max-content;
 }
 
 .project-title {
-  font-size: 2rem;
+  align-self: flex-start;
+  font-size: 1.8rem;
   margin-bottom: 0.75rem;
 }
 
@@ -385,21 +390,36 @@ header {
   line-height: 1.1rem;
 }
 
+.project-btn-big,
 .project-btn {
-  margin: 1rem;
   width: 5rem;
   height: 1.7rem;
   background: var(--deep-yellow);
   border: 1.5px solid rgb(0, 0, 0);
   border-radius: 25px;
-  position: absolute;
   z-index: 10;
-  bottom: 0%;
-  right: 0%;
   cursor: pointer;
 }
 
-.project-btn::after {
+.project-btn-big {
+  margin: 1rem;
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+}
+
+.project-btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.project-btn {
+  position: relative;
+  margin-right: auto;
+}
+
+.project-btn::after,
+.project-btn-big::after {
   content: "";
   position: absolute;
   top: 0;
@@ -441,6 +461,9 @@ header {
   display: flex;
   flex-flow: column;
   align-items: center;
+  width: 450px;
+  margin: auto;
+  max-width: 90%;
 }
 
 .email-address {
@@ -448,6 +471,8 @@ header {
   color: var(--deeper-gray);
   font-family: var(--space-mono);
   display: inline;
+  max-width: 300px;
+  word-break: break-word;
 }
 
 .social-media-icons {
@@ -491,6 +516,38 @@ header {
   color: var(--deepest-gray);
 }
 
+@media (width < 320px) {
+  body {
+    min-width: 180px;
+  }
+
+  .section-header-container {
+    background: none;
+  }
+
+  .section-header-container {
+    max-width: 110%;
+    width: 110%;
+  }
+
+  .hero-header {
+    line-height: 2.5rem;
+  }
+
+  .single-project > img {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: contain;
+    background: red;
+  }
+
+  .project-desc {
+    margin-bottom: 1.5rem;
+  }
+}
+
 @media (width > 650px) {
   .nav-buttons-container {
     display: none;
@@ -499,8 +556,6 @@ header {
   .hero-container {
     background: url("./images/hero-background-laptop.png");
     margin-top: 1rem;
-    /* height: 17.5rem;
-    height: 15rem; */
     height: 310px;
   }
 
@@ -619,7 +674,6 @@ header {
   }
 
   .hero-container {
-    /* background: red; */
     height: 16rem;
   }
 
@@ -773,6 +827,15 @@ header {
     max-width: 30rem;
   }
 
+  .project-details {
+    display: grid;
+    grid-template-rows: 5rem auto 3rem;
+  }
+
+  .project-desc {
+    margin-bottom: 1.5rem;
+  }
+
   .main-projects-ls,
   .small-projects-ls {
     display: flex;
@@ -792,7 +855,7 @@ header {
 
   .small-projects-ls > * {
     margin: 1rem 0;
-    height: 16rem;
+    height: auto;
   }
 
   .resume-title {
@@ -805,6 +868,7 @@ header {
     top: -6rem;
     left: -3rem;
     visibility: visible;
+    display: block;
   }
 
   .resume-title-background::before {
