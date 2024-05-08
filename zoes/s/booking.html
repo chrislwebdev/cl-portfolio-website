@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./booking.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <title>Table Booking</title>
+  </head>
+  <body>
+    <!-- 1. Booking form choices -->
+    <form class="booking-form-choices">
+      <!-- 2. Location choice -->
+      <div class="location-choice-cont fs-dis">
+        <div class="form-logo-cont">
+          <a href="../index.html">
+            <img src="../images/Zoe's logo.svg" alt="" class="form-logo" />
+          </a>
+        </div>
+
+        <div class="location-options-cont">
+          <input type="radio" id="preston" name="city" value="preston" />
+          <label for="preston">
+            Preston / <br />
+            Lancashire
+          </label>
+
+          <input type="radio" id="manchester" name="city" value="manchester" />
+          <label for="manchester">
+            Salford / <br />
+            Manchester
+          </label>
+        </div>
+      </div>
+
+      <!-- 3. Form progress bars -->
+      <div class="progress-bars-outer-cont fs-dis">
+        <h3 class="booking-av-title">Booking Availability</h3>
+        <div class="progress-bars-inner-cont">
+          <div class="progress-bar-cont">
+            <p>Find Table</p>
+            <div class="progress-bar pb-1 pb-active"></div>
+          </div>
+          <div class="progress-bar-cont">
+            <p>Enter your details</p>
+            <div class="progress-bar pb-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Guests number choice -->
+      <div class="choices-layout-ls">
+        <div class="choices-layout">
+          <div class="guest-choice-cont">
+            <div class="guest-choice-btn-cont">
+              <button
+                type="button"
+                class="guest-choice-btn"
+                data-quantity="minus"
+                data-field="adults"
+              >
+                <i class="fa-solid fa-minus guest-choice-icon"></i>
+              </button>
+              <input
+                id="guests"
+                name="adults"
+                min="1"
+                max="8"
+                value="1"
+                class="guest-choice"
+                disabled
+              />
+              <label for="guests" class="guest-choice-title">Guest</label>
+              <button
+                type="button"
+                class="guest-choice-btn"
+                data-quantity="plus"
+                data-field="adults"
+              >
+                <i class="fa-solid fa-plus guest-choice-icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 5. Date choice -->
+          <div class="date-choice-cont">
+            <div class="selected-date-cont">
+              <p class="selected-date"></p>
+              <i class="fa-solid fa-angle-down option-down-arrow"></i>
+            </div>
+
+            <div id="dates" class="date-options-cont">
+              <div class="date-picker-calendar">
+                <div class="month-container">
+                  <div class="arrows prev-mth">&lt;</div>
+                  <div class="month-name"></div>
+                  <div class="arrows next-mth">&gt;</div>
+                </div>
+                <div class="day-names-cont">
+                  <p>M</p>
+                  <p>T</p>
+                  <p>W</p>
+                  <p>T</p>
+                  <p>F</p>
+                  <p>S</p>
+                  <p>S</p>
+                </div>
+                <!-- <div class="days-cont"> -->
+                <div class="dates-cont" id="dates-cont"></div>
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Time choice -->
+          <div class="time-choice-cont">
+            <div class="time-selected-cont">
+              <span class="selected-time">Time</span>
+              <div class="caret"><i class="fa-solid fa-angle-down"></i></div>
+            </div>
+            <ul class="time-options-cont" id="time-input">
+              <li><option value="16:00" class="time-option">16:00</option></li>
+              <li><option value="16:30" class="time-option">16:30</option></li>
+              <li><option value="17:00" class="time-option">17:00</option></li>
+              <li><option value="17:30" class="time-option">17:30</option></li>
+              <li><option value="18:00" class="time-option">18:00</option></li>
+              <li><option value="18:30" class="time-option">18:30</option></li>
+              <li><option value="19:00" class="time-option">19:00</option></li>
+              <li><option value="19:30" class="time-option">19:30</option></li>
+              <li><option value="20:00" class="time-option">20:00</option></li>
+              <li><option value="20:30" class="time-option">20:30</option></li>
+              <li><option value="21:00" class="time-option">21:00</option></li>
+              <li><option value="21:30" class="time-option">21:30</option></li>
+            </ul>
+          </div>
+        </div>
+
+        <input type="submit" value="Book Table" class="choices-submit-btn" />
+      </div>
+    </form>
+
+    <!-- 7. Booking confirmation message -->
+    <div class="booking-conf-cont element-disappear fs-app">
+      <div class="booking-conf-img"></div>
+      <div class="booking-conf-msg-cont">
+        <p class="booking-conf-msg">
+          Dear <span id="c-forename"></span>, you have booked your table
+          successfully. Here are the details:
+        </p>
+      </div>
+    </div>
+
+    <!-- 8. Details confirmation form -->
+    <form class="details-confirmation-form element-disappear">
+      <div class="details-conf-form-ls">
+        <div class="booking-details-cont">
+          <div class="booking-details-ls fs-al">
+            <div class="booking-details-input-cont">
+              <span
+                ><img
+                  src="../images/calendar icon.svg"
+                  alt=""
+                  class="booking-details-icon" /></span
+              ><input
+                type="text"
+                id="date"
+                class="booking-details-input"
+                disabled="disabled"
+              />
+            </div>
+            <div class="booking-details-input-cont">
+              <span
+                ><img
+                  src="../images/time icon.svg"
+                  alt=""
+                  class="booking-details-icon" /></span
+              ><input
+                type="text"
+                id="time"
+                class="booking-details-input"
+                disabled="disabled"
+              />
+            </div>
+            <div class="booking-details-input-cont">
+              <span
+                ><img
+                  src="../images/people icon.svg"
+                  alt=""
+                  class="booking-details-icon" /></span
+              ><input
+                type="text"
+                id="adults"
+                class="booking-details-input"
+                disabled="disabled"
+              />
+            </div>
+            <div class="booking-details-input-cont">
+              <span
+                ><img
+                  src="../images/location icon.svg"
+                  alt=""
+                  class="booking-details-icon"
+              /></span>
+              <textarea
+                id="location"
+                rows="6"
+                cols="20"
+                disabled
+                style="resize: none"
+                class="booking-details-input"
+                disabled="disabled"
+              >
+              </textarea>
+            </div>
+          </div>
+
+          <!-- 9. Booking reminder message -->
+          <div class="booking-reminder-msg-cont element-disappear fs-app">
+            <!-- <div class="test-align"> -->
+            <p class="booking-reminder-msg fs-al">
+              If there is any change in your booking, before 72 hours ago you
+              can change is via phone
+            </p>
+            <!-- </div> -->
+          </div>
+        </div>
+
+        <!-- 10. Guest info -->
+        <div class="customer-info-cont fs-dis">
+          <input
+            type="text"
+            name="c-name"
+            id="c-name"
+            placeholder="First Name"
+            class="customer-info-input in-1"
+            required
+            autocomplete="off"
+          />
+          <input
+            id="c-surname"
+            type="text"
+            name="c-surname"
+            placeholder="Surname"
+            class="customer-info-input in-2"
+            required
+            autocomplete="off"
+          />
+          <input
+            type="tel"
+            id="phoneInput"
+            maxlength="15"
+            name="c-telephone"
+            placeholder="Phone Number"
+            class="customer-info-input phone-input in-3"
+            required
+            autocomplete="off"
+          />
+          <input
+            type="email"
+            name="c-email"
+            placeholder="Email address"
+            class="customer-info-input in-4"
+            required
+            autocomplete="off"
+          />
+          <textarea
+            name="special-request"
+            id="special-request"
+            cols="30"
+            rows="10"
+            placeholder="Add special request (optional)"
+            class="customer-info-input"
+          ></textarea>
+          <!-- ============================= -->
+        </div>
+      </div>
+
+      <!-- 11. Final submit button -->
+      <div class="final-submit-btn-cont">
+        <button type="button" class="back-btn">Back</button>
+        <button type="submit" class="final-submit-btn">Book Table</button>
+      </div>
+    </form>
+    <div class="form-completion-img element-disappear fs-app"></div>
+
+    <script src="./booking.js" type="module"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#phoneInput").val("+44 "); // Set initial dial code
+
+        $("#phoneInput").on("input", function () {
+          const currentValue = $(this).val();
+          const dialCode = "+44 ";
+
+          if (!currentValue.startsWith(dialCode)) {
+            // If the dial code is missing, re-add it at the beginning
+            $(this).val(dialCode + currentValue.slice(dialCode.length));
+          } else {
+            // If the dial code is present, allow editing only after it
+            $(this).val(
+              dialCode + currentValue.slice(dialCode.length).replace(/^\D+/, "")
+            ); // Remove any non-digits after the dial code
+          }
+        });
+      });
+    </script>
+
+    <!-- <script src="build/js/intlTelInput.min.js">
+            var input = document.getElementById('telephone');
+
+      window.intlTelInput(input, {
+        allowDropdown: true,
+        autoPlaceholder: "polite",
+        excludeCountries: ["ukraine"],
+        initialCountry: "UK",
+      });
+    </script> -->
+
+    <script>
+      jQuery(document).ready(function () {
+        $('[data-quantity="plus"]').click(function (e) {
+          e.preventDefault();
+          guests = $(this).attr("data-field");
+          var currentVal = parseInt($("input[name=" + guests + "]").val());
+
+          if (!isNaN(currentVal) && currentVal < 8) {
+            $("input[name=" + guests + "]").val(currentVal + 1);
+          } else {
+            return;
+          }
+        });
+        $('[data-quantity="minus"]').click(function (e) {
+          e.preventDefault();
+          guests = $(this).attr("data-field");
+          var currentVal = parseInt($("input[name=" + guests + "]").val());
+          if (!isNaN(currentVal) && currentVal > 1) {
+            $("input[name=" + guests + "]").val(currentVal - 1);
+          } else {
+            $("input[name=" + guests + "]").val(1);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

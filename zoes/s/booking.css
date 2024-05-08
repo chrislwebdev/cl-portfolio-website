@@ -1,0 +1,797 @@
+@import url("https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Libre+Baskerville:wght@400;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  --libre: Libre Baskerville;
+  --castoro: Castoro;
+}
+
+body {
+  font-family: var(--libre);
+}
+
+input,
+textarea {
+  display: block;
+  border: none;
+  background: none;
+}
+
+/* 1. Booking form choices */
+.booking-form-choices {
+  margin: 1rem;
+}
+
+.booking-form-choices,
+.details-confirmation-form {
+  width: 90%;
+  max-width: 320px;
+  margin: auto;
+}
+
+/* 2. Location choice */
+.location-choice-cont {
+  font-family: var(--castoro);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-flow: column;
+}
+
+.form-logo-cont {
+}
+
+.form-logo {
+  display: block;
+  margin: auto;
+}
+
+.location-options-cont {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  justify-content: center;
+}
+
+.location-options-cont input[type="radio"] {
+  display: none;
+}
+
+.location-options-cont label {
+  padding: 0.3rem 1.5rem;
+  font-size: 0.6rem;
+}
+
+.location-options-cont input[type="radio"]:checked + label {
+  background: #eae2f4;
+}
+
+/* 3. Form progress bars */
+.progress-bars-outer-cont {
+}
+
+.booking-av-title {
+  font-size: 1rem;
+  color: #7536bc;
+}
+
+.progress-bars-inner-cont {
+  display: flex;
+}
+
+.progress-bar-cont {
+  width: 50%;
+  font-size: 11px;
+}
+
+.progress-bar-cont > p {
+  padding: 0;
+  margin: 1rem 0 0.25rem 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background: #d7d7d7;
+}
+
+.pb-active {
+  background: #b190d6;
+}
+
+/* 4. Guests number choice */
+.choices-layout {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: fit-content;
+  max-height: 2rem;
+}
+
+.choices-layout > * {
+  border: 2px solid rgba(215, 215, 215, 0.45);
+  padding: 0.25rem;
+}
+
+.choices-layout > *:not(:nth-child(3)) {
+  border-right: none;
+}
+
+.guest-choice-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.guest-choice-btn-cont {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.guest-choice-btn {
+  background: #eae2f4;
+  border-radius: 100px;
+  border: none;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.guest-choice-title,
+.guest-choice {
+  font-size: 10px;
+  font-family: var(--libre);
+}
+
+.guest-choice-title {
+  margin-left: -0.4rem;
+}
+
+.guest-choice {
+  width: 0.7rem;
+  text-align: center;
+  border: none;
+}
+
+.guest-choice-icon {
+  font-size: 8px;
+  opacity: 0.6;
+  font-weight: 100;
+}
+
+/* 5. Date choice */
+.date-choice-cont {
+  font-size: 10px;
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+.selected-date-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  height: 100%;
+}
+
+.selected-date {
+  /* Potentially surplus */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #313131;
+  font-size: 10px;
+  position: relative;
+}
+
+.option-down-arrow {
+  margin-top: 0.1rem;
+}
+
+.date-picker-calendar {
+  border: 0.5px solid rgba(177, 177, 177, 0.5);
+  width: 11.7rem;
+  min-width: 11.7rem;
+  width: 200%;
+  margin-top: 0.5rem;
+  background: #fff;
+}
+
+.month-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eee;
+  width: 11.7rem;
+  margin: auto;
+  height: 2rem;
+}
+
+.month-container .arrows {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #5d5b5c;
+  font-size: 10px;
+  opacity: 0.7;
+  margin-inline: 1rem;
+}
+
+.month-container .arrows:hover {
+  background-color: #f3f3f3;
+}
+
+.prev-mth {
+  user-select: none;
+}
+
+.month-name {
+  color: #7536bc;
+  font-family: calibri;
+  font-weight: bold;
+  font-family: Libre Baskerville;
+}
+
+.day-names-cont,
+.dates-cont {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-inline: 1rem;
+  text-align: center;
+}
+
+.day-names-cont {
+  margin-block: 0.5rem;
+  background: rgba(177, 144, 214, 0.5);
+  /* padding-block: 0.3rem; */
+}
+
+.day,
+.day-names-cont > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.2rem;
+  width: 1.2rem;
+  margin: auto;
+}
+
+.day {
+  margin-block: 0.2rem;
+}
+
+.date-options-cont {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.date-options-cont.active {
+  display: block;
+}
+
+.date-options-cont.inactive {
+  display: none;
+}
+
+.selected-day {
+  background: #eae2f4;
+  border-radius: 100px;
+  z-index: 0;
+  position: relative;
+}
+
+/* 6. Time choice */
+.time-choice-cont {
+  position: relative;
+  cursor: pointer;
+}
+
+.time-choice-cont * {
+  box-sizing: border-box;
+}
+
+.time-selected-cont {
+  top: 0;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  cursor: pointer;
+}
+
+.selected-time {
+  margin-right: 0.2rem;
+}
+
+/* .caret-rotate {
+  transform: rotate(180deg);
+} */
+
+.time-options-cont {
+  font-size: 10px;
+  list-style-type: none;
+  color: black;
+  border: 0.5px solid rgba(177, 177, 177, 0.5);
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+  z-index: 1;
+  background: #fff;
+}
+
+.time-options-cont > li {
+  text-align: center;
+}
+
+option {
+  padding-block: 0.25rem;
+}
+
+.time-options-cont > li:hover {
+  cursor: pointer;
+}
+
+.time-ops-open {
+  display: block;
+  opacity: 1;
+}
+
+.time-highlight {
+  background: #e3d8f1;
+}
+
+.choices-submit-btn,
+.final-submit-btn {
+  margin-inline: auto;
+  margin-top: 3rem;
+  cursor: pointer;
+  background: #eaeaea;
+  max-width: 12rem;
+  width: 65%;
+  height: 2.5rem;
+  color: white;
+  font-family: var(--libre);
+  font-size: 0.7rem;
+  border-radius: 2px;
+}
+
+/* 7. Booking success message */
+.booking-conf-cont {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+}
+
+.booking-conf-img {
+  height: 5rem;
+  width: 15rem;
+  background: url("../images/Zoe's\ logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  margin: 0;
+}
+
+.booking-conf-msg {
+  background: #eae2f4;
+  font-size: 0.7rem;
+  width: 90%;
+  max-width: 20rem;
+  margin: 0 auto 1rem auto;
+  padding: 1rem;
+}
+
+#c-forename {
+  display: inline-block;
+}
+
+/* 8. Details confirmation form */
+.booking-details-cont {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  color: red;
+  /* margin-top: 1rem; */
+}
+
+.booking-details-input-cont {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  color: pink;
+}
+
+.booking-details-input-cont > input,
+textarea {
+  color: #464445;
+  /* font-weight: bold; */
+}
+
+.booking-details-icon {
+  height: 1.25rem;
+}
+
+.booking-details-input {
+  font-family: var(--libre);
+  font-size: 0.7rem;
+  color: #777576;
+}
+
+/* 9. Booking reminder message */
+.booking-reminder-msg-cont {
+  max-width: 100%;
+  overflow: clip;
+}
+
+.booking-reminder-msg {
+  width: 85%;
+  max-width: 20rem;
+  margin: 1rem auto;
+  font-size: 0.7rem;
+  color: #777576;
+}
+
+/* 10. Guest info */
+.customer-info-input {
+  border: 0.9px solid rgb(215, 215, 215);
+  width: 90%;
+  margin: auto;
+  margin-block: 1rem;
+  padding: 0.5rem 0.75rem;
+  max-width: 300px;
+  color: #5d5b5c;
+}
+
+.customer-info-input:focus {
+  outline: 0.7px solid #7c41bf;
+}
+
+.customer-info-input:valid {
+  background: none;
+}
+
+.customer-info-input::placeholder,
+.phone-input {
+  opacity: 0.8;
+  font-size: 0.75rem;
+
+  font-family: var(--libre);
+}
+
+/* 11. Final submit button */
+.final-submit-btn-cont {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.back-btn {
+  width: 30%;
+  background: none;
+  border: 0.7px solid #7c41bf;
+  height: 2.5rem;
+  font-family: var(--libre);
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.final-submit-btn {
+  margin: 0;
+  border: none;
+  width: 70%;
+}
+
+.form-completion-img {
+  background: url("../images/success-booking.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 10rem;
+  width: 100%;
+}
+/* ================================ */
+
+.element-appear {
+  display: block;
+}
+
+.date-inactive {
+  color: lightgray;
+  opacity: 0.5;
+}
+
+@media (width > 600px) {
+  /* 1. Booking form choices */
+  .booking-form-choices {
+    margin-top: 3rem;
+  }
+
+  .booking-form-choices,
+  .details-confirmation-form {
+    width: 85%;
+    max-width: 720px;
+  }
+
+  /* 2. Location choice */
+  .location-choice-cont {
+    flex-flow: row;
+  }
+
+  .form-logo {
+    width: 10rem;
+  }
+
+  .location-options-cont label {
+    font-size: 0.8rem;
+    width: 12rem;
+    height: 3rem;
+    max-width: 40%;
+    display: flex;
+    align-items: center;
+  }
+
+  /* 3. Form progress bars */
+  .booking-av-title {
+    font-size: 1.2rem;
+  }
+
+  .progress-bar-cont > p {
+    font-size: 1rem;
+  }
+
+  /* 4. Guests number choice */
+  .choices-layout-ls {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    margin-top: 1rem;
+  }
+
+  .choices-layout {
+    max-height: 3.2rem;
+    height: 3.2rem;
+    margin-top: 0;
+  }
+
+  .guest-choice-btn {
+    width: 1.2rem;
+    height: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .guest-choice {
+    margin-right: 0.2rem;
+    font-weight: bold;
+  }
+
+  .guest-choice-icon {
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+
+  /* 5. Date choice */
+  .selected-date {
+    font-size: 0.9rem;
+  }
+
+  .month-container {
+    width: 15rem;
+  }
+
+  .month-container .arrows {
+    font-size: 0.8rem;
+  }
+
+  .day,
+  .day-names-cont > p {
+    height: 1.5rem;
+    width: 1.55rem;
+  }
+
+  .day {
+    margin-block: 0.4rem;
+  }
+
+  .selected-day::before {
+    position: absolute;
+    content: "";
+    background: #eae2f4;
+    z-index: -1;
+    border-radius: 100%;
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
+  /* 6. Time choice */
+  .time-options-cont {
+    top: 3.5rem;
+  }
+
+  .choices-submit-btn {
+    margin: 0;
+    width: 100%;
+    height: 3.2rem;
+  }
+
+  /* 7. Booking success message */
+  .booking-conf-cont {
+    flex-flow: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .booking-conf-img {
+    background: url("../images/Zoe's\ logo\ ls.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15rem;
+    width: 12rem;
+    margin: 0;
+    position: relative;
+  }
+
+  .booking-conf-img::before,
+  .booking-conf-img::after {
+    content: "";
+    position: absolute;
+    width: 0.1px;
+    height: 20px;
+    top: 0;
+    left: 1.5rem;
+    background: #7536bc;
+    opacity: 0.4;
+  }
+
+  .booking-conf-img::before {
+    height: 3rem;
+    top: -3rem;
+  }
+
+  .booking-conf-img::after {
+    top: 100%;
+    height: 20rem;
+  }
+
+  .booking-conf-msg-cont {
+    background: #eae2f4;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+  }
+
+  .booking-conf-msg {
+    margin: 0;
+    font-size: 0.8rem;
+    max-width: 25rem;
+    padding: 0.5rem 2rem;
+    width: max-content;
+    background: none;
+  }
+
+  /* 8. Details confirmation form */
+  .details-conf-form-ls {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: flex-start;
+    margin-top: -0.5rem;
+  }
+
+  .details-conf-form-ls > div {
+    justify-self: flex-start;
+  }
+
+  .booking-details-cont {
+    margin-top: 0.5rem;
+  }
+
+  .booking-details-input-cont {
+    margin-block: 0.3rem;
+  }
+
+  .booking-details-icon {
+    /* margin-top: 0.2rem; */
+    height: 1.6rem;
+  }
+
+  .booking-details-input {
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+  }
+
+  /* 9. Booking reminder message */
+  .booking-reminder-msg-cont {
+    margin-top: -0.5rem;
+  }
+
+  /* 10. Guest info */
+  .customer-info-cont {
+    width: 100%;
+  }
+
+  .customer-info-input {
+    margin-inline: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* 11. Final submit button */
+  .final-submit-btn-cont {
+    margin: 0;
+    width: 50%;
+    margin-left: auto;
+    margin-bottom: 3rem;
+  }
+
+  .form-completion-img {
+    background: url("../images/success-booking-ls.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 20rem;
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+  }
+
+  .guest-choice,
+  .guest-choice-title,
+  .selected-date,
+  .selected-time,
+  option,
+  .day-names-cont > p,
+  .day,
+  .month-name {
+    font-size: 0.9rem;
+  }
+
+  .booking-align {
+    width: max-content;
+    margin-inline: auto;
+    margin-left: 45%;
+  }
+
+  .form-success {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}
+
+.element-disappear {
+  display: none;
+}
